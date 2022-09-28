@@ -1,0 +1,121 @@
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
+
+  <?php
+
+
+@include 'connection.php'; 
+
+if(isset($_POST['registerbtn']))
+{
+	$special = $_POST['special'];
+	$gender = $_POST['gender'];
+	$dob = $_POST['dob'];
+	$degree_certi = $_POST['certificate'];
+	$exp_yrs = $_POST['exp_yr'];
+	$exp_certi = $_POST['exp_certificate'];
+    $name = $_POST['name'];
+	$address = $_POST['address'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $qualification = $_POST['qul'];
+	$fee = $_POST['fee'];
+	$role = "Specialist";
+
+		$duplicate=mysqli_query($conn, "SELECT * from tbl_login WHERE lg_email='$email'");
+		 if(mysqli_num_rows($duplicate)>0)
+		{
+		  echo "<script> alert('Already Registered'); </script>";
+		  
+		}
+		else
+		{
+		  $sql="INSERT INTO tbl_login(lg_email, lg_password,lg_role) VALUES ('$email', '$password','$role')";
+		  if($conn->query($sql)=== TRUE)
+		  {
+			  $val="SELECT lg_id from tbl_login where lg_email='".$email."'";
+			  if($res=$conn->query($val))
+			  {
+				foreach($res as $data)
+				{
+				$login_id=$data['lg_id'];
+				$sql1="INSERT INTO tbl_specialist(lg_id, sp_name, sp_address, sp_experience, sp_amount, sp_degcert, sp_expcert, sp_role, sp_qual, sp_gender,sp_dob) VALUES ('$login_id','$name','$address','$exp_yrs','$fee','$degree_certi','$exp_certi','$special','$qualification','$gender',$dob)";
+				if($conn->query($sql1)=== TRUE)
+				 {
+				 echo "Successful inserted";
+				}
+				else
+				{
+					 echo "Insertion failed";
+				}
+				
+				$query_run = mysqli_query($connection, $sql1);
+    
+				if($query_run)
+				{
+					echo "done";
+					$_SESSION['success'] =  "Specialist is Added Successfully";
+					header('Location: reg_gyno.php');
+				}
+				else 
+				{
+					echo "not done";
+					$_SESSION['status'] =  "Specialist is Not Added";
+					header('Location: reg_gyno.php');
+				}
+			  }
+		  }
+		}
+		}
+		
+		
+		
+		
+		
+		/**
+        $query = "INSERT INTO tbl_specialist(sp_name, sp_email, sp_password, sp_address, sp_experience, sp_amount, sp_degcert, sp_expcert, sp_role, sp_qual) VALUES ('$name','$email','$password','$address','$exp_yrs','$fee','$degree_certi','$exp_certi','$special','$qualification')";
+		if($conn->query($query) === TRUE)
+			 {
+				 echo "Successful inserted";
+			 }
+			 else
+		    {
+				 echo "Insertion failed";
+		    }
+			
+        $query_run = mysqli_query($connection, $query);
+    
+        if($query_run)
+        {
+            echo "done";
+            $_SESSION['success'] =  "Specialist is Added Successfully";
+            header('Location: reg_gyno.php');
+        }
+        else 
+        {
+            echo "not done";
+            $_SESSION['status'] =  "Specialist is Not Added";
+            header('Location: reg_gyno.php');
+        }
+    
+    **/
+    
+
+}
+
+?>

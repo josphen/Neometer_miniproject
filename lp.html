@@ -1,0 +1,117 @@
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans&display=swap" rel="stylesheet" /><link> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body
+{
+font-family: "Times New Roman", Times, serif;
+color: white;
+}
+.background {
+background: url('lpimg.jpg') rgba(0, 0, 0, 0.61);
+background-repeat: no-repeat;
+background-size: cover;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+width: 1488px;
+height: 750px;
+fill-layer-image-opacity: 0.3;
+opacity: 0.75;
+}
+.container {
+position:absolute;
+width: 667px;
+height: 500px;
+left: 386px;
+top: 70px;
+display: flex;
+flex-direction: column;
+text-align: center;
+margin: 10vh auto;
+background: rgba(241, 235, 237, 0.6);
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 50px;
+font-family: 'Alegreya Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 25px;
+text-align: center;
+color: #000000;
+
+}
+form {
+padding: 10px;
+display: flex;
+flex-direction: column;
+width: 85%;
+}
+input[type=text], input[type=password] {
+width: 50%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+input[type=text]:focus, input[type=password]:focus {
+background-color: #ddd;
+outline: none;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+hr {
+border: 0.5px solid black;
+margin-bottom: 30px;
+margin-top: 15px;
+margin-left: 100px;
+margin-right: 100px;
+}
+.registerbtn {
+background: #313030;
+border-radius: 30px;
+font-family: 'Almendra';
+color: white;
+padding: 16px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 40%;
+opacity: 0.9;
+
+}
+.registerbtn:hover {
+opacity: 1;
+}
+a {
+color: dodgerblue;
+}
+</style>
+</head>
+<body>
+<form action="actionpg2.php" method="POST">
+<div class="background">
+<div class="container" >
+<br></br>
+<h1><b>SIGN IN<b></h1>
+<hr>
+<label for="email"><b>EMAIL</b></label><br>
+<input type="text" placeholder="Enter Email" name="email" id="email" required><br>
+<label for="psw"><b>PASSWORD</b></label><br>
+<input type="password" placeholder="Enter Password" name="psw" id="psw" required><br>
+
+<button type="submit" class="registerbtn">SIGN IN</button><br>
+
+<p>New user? <a href="regp.html">Sign up</a>.</p></center>
+</div>
+</div>
+</form>
+
+
+
+</body>
+</html>

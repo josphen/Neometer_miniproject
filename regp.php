@@ -1,0 +1,401 @@
+<?php
+include "code_reg.php";
+?>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans&display=swap" rel="stylesheet" /><link> 
+<link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet" />
+<style>
+body
+{
+font-family: "Times New Roman", Times, serif;
+color: white;
+}
+.background {
+background: url('regimg1.jpg') rgba(0, 0, 0, 0.61);
+background-repeat: no-repeat;
+background-size: 100%;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+width: 1470px;
+height: 1100px;
+fill-layer-image-opacity: 0.3;
+opacity: 0.75;
+}
+.container {
+position:absolute;
+width: 667px;
+height: 800px;
+left: 386px;
+top: 40px;
+display: flex;
+flex-direction: column;
+text-align: center;
+margin: 10vh auto;
+background: rgba(241, 235, 237, 0.6);
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 50px;
+font-family: 'Alegreya Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 22px;
+text-align: center;
+color: #000000;
+}
+form {
+padding: 10px;
+display: flex;
+flex-direction: column;
+width: 85%;
+}
+input[type=text], input[type=password],input[type=date]{
+width: 50%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type=text]:focus, input[type=password]:focus,input[type=date]:focus{
+background-color: #ddd;
+outline: none;
+}
+hr {
+border: 0.5px solid black;
+margin-bottom: 30px;
+margin-top: 15px;
+margin-left: 100px;
+margin-right: 100px;
+}
+.registerbtn {
+background: #313030;
+border-radius: 30px;
+font-family: 'Almendra';
+color: white;
+padding: 16px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 40%;
+opacity: 0.9;
+}
+.registerbtn:hover {
+opacity: 1;
+}
+a {
+color: dodgerblue;
+}
+
+.error-message {
+	  color: red;
+	  margin-top: -25px;
+	  margin-bottom: 0px;
+	  font-size: 15px;
+	}
+
+
+
+	#header {
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		background: #fff;
+		cursor: default;
+		height: 6em;
+		left: 0;
+		line-height: 6em;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 10001;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.075);
+		text-align: left;
+	}
+
+		#header .logo {
+			color: rgba(205,78,163,1);
+			font-family: "Audiowide";
+			font-size: 2.5em;
+			letter-spacing: 2px;
+			margin-top: -5px;
+			text-decoration: none;
+			display: inline-block;
+			margin-left: 125px;
+		}
+		
+		#header .logodes{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			left: 10px;
+		}
+		
+		#header .logodes img{
+			width: 70px;
+			border-radius: 50px;
+		}
+		
+
+		#header nav {
+			position: absolute;
+			top: 0;
+			height: inherit;
+			line-height: inherit;
+		}
+
+			#header nav.left {
+				left: 2em;
+			}
+
+			#header nav.right {
+				right: 2em;
+			}
+
+			#header nav .button {
+				padding: 0 2em;
+				height: 3.25em;
+				line-height: 3.25em;
+			}
+
+			#header nav a {
+				text-decoration: none;
+				display: inline-block;
+			}
+
+				#header nav a[href="#menu"] {
+					text-decoration: none;
+					-webkit-tap-highlight-color: transparent;
+					font-size: 2em;
+					color: #dee1e3;
+					z-index: 10005;
+				}
+
+					#header nav a[href="#menu"]:before {
+						content: "";
+						-moz-osx-font-smoothing: grayscale;
+						-webkit-font-smoothing: antialiased;
+						font-family: FontAwesome;
+						font-style: normal;
+						font-weight: normal;
+						text-transform: none !important;
+					}
+
+					#header nav a[href="#menu"] span {
+						display: none;
+					}
+
+					#header nav a[href="#menu"]:before {
+						margin: 0 0.5em 0 0;
+					}
+
+	@media screen and (max-width: 980px) {
+
+		body {
+			padding-top: 44px;
+		}
+
+		#header {
+			height: 44px;
+			line-height: 44px;
+		}
+
+			#header .logo {
+				font-size: 1.25em;
+				text-align: center;
+			}
+
+			#header nav a[href="#menu"] {
+				font-size: 1.5em;
+			}
+
+			#header nav.left {
+				left: 1em;
+			}
+
+			#header nav.right {
+				display: none;
+			}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		#header {
+			min-width: 320px;
+		}
+
+	}
+
+.btn {
+			padding: 8px 20px;
+			margin: 7px 0;
+			border-radius: 8px;
+			background: none;
+			color: rgba(205,78,163,1);
+			cursor: pointer;
+			font-size: 20px;
+			font-family: 'Alegreya Sans';
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+			<header id="header">
+				<nav class="left">
+					<div class="logodes">
+						<img src= "logo.jpg">
+					</div>
+				</nav>
+				
+				<a href="index.html" class="logo">NEOMETER</a>
+				
+			</header>
+			
+<form name="myform" action="code_reg.php" method="POST" onkeyup = "return formValidation()" >
+<div class="background">
+<div class="container" >
+<br></br>
+<h1><b>SIGN UP<b></h1>
+<hr>
+
+<label for="name"><b>NAME</b></label><br>
+<input type="text" placeholder="Enter name" name="name" id="name" required><p class="error-message"></p><br>
+<label for="dt"><b>DATE OF BIRTH</b></label><br>
+<input type="date" placeholder="Enter Date of Birth" name="dt" id="dt" required><p class="error-message"></p><br>
+<label for="email"><b>EMAIL</b></label><br>
+<input type="text" placeholder="Enter Email" name="remail" id="email" required><p class="error-message"></p><br>
+<label for="psw"><b>PASSWORD</b></label><br>
+<input type="password" placeholder="Enter Password" name="rpsw" id="psw" required><p class="error-message"></p><br>
+<label for="psw"><b>CONFIRM PASSWORD</b></label><br>
+<input type="password" placeholder="Enter to confirm password" name="cpsw" id="cpsw" required><p class="error-message"></p><br>
+<button type="submit" id="btnsub" class="registerbtn" name="submit">SIGN UP</button>
+<p>Already have an account? <a href="lp.php">Sign in</a>.</p></center>
+</div>
+</div>
+</form>
+
+
+
+<script>
+function formValidation() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('psw').value;
+	var conpassword = document.getElementById('cpsw').value;
+	//var button = document.getElementById('btnsub');
+    var text = "";
+  
+  if (Name(name)) {
+  }
+  if (Email(email)) {
+  }
+  if (Password(password)) {
+  }
+  if(Confirm(conpassword,password)){
+  }
+  return false;
+}
+
+/*Name input validation*/
+function Name(name) {
+  var message = document.getElementsByClassName("error-message");
+  var letters = /^[A-Za-z ]+$/;
+  if ( name ==" " || name.match(letters)) {
+    text="";
+    message[0].innerHTML = text;
+    document.getElementById('btnsub').disabled = false;
+	return true;
+  }
+  
+  else {
+    text="Name should contain only letters";
+    message[0].innerHTML = text;
+    document.getElementById('btnsub').disabled = true;
+	return false;
+  }
+}
+
+
+/*email address input validation*/
+function Email(email) {
+  var message = document.getElementsByClassName("error-message");
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+  var atpos = email.indexOf("@");
+  var dotpos = email.lastIndexOf(".");
+          
+  if ( email =="" || email.match(mailformat) || atpos > 1 && ( dotpos - atpos > 2 )) {
+    text="";
+    message[2].innerHTML = text;
+	document.getElementById('btnsub').disabled = false;
+   return true;
+  }
+         
+  else {
+    text="Wrong email format";
+    message[2].innerHTML = text;
+	document.getElementById('btnsub').disabled = true;
+    return false;
+  }
+}
+
+
+/*validate password*/
+function Password(password) {
+  var message = document.getElementsByClassName("error-message");
+  var illegalChars = /[\W_]/; // allow only letters and numbers
+  if (illegalChars.test(password)) { 
+    text="Password contains illegal characters";
+    message[3].innerHTML = text;
+	document.getElementById('btnsub').disabled = true;
+    return false;
+  }
+  else if ( (password.search(/[0-9]+/)==-1) ) {
+    text="Password should contain at least one number";
+    message[3].innerHTML = text;
+	document.getElementById('btnsub').disabled = true;
+    return false;
+  }
+  else {
+    text="";
+    message[3].innerHTML = text;
+	document.getElementById('btnsub').disabled = false;
+    return true;
+  }
+}
+
+function Confirm(conpassword,password) {
+	
+	var message = document.getElementsByClassName("error-message");
+	if (password == conpassword) { 
+	
+		text="";
+		message[4].innerHTML = text;
+		document.getElementById('btnsub').disabled = false;
+		return true;
+		
+  }
+ 
+  else {
+	  text="Password does not match";
+		message[4].innerHTML = text;
+		document.getElementById('btnsub').disabled = true;
+		return false;
+    
+  }
+ 
+}
+
+</script>
+
+</body>
+</html>

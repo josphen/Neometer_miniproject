@@ -1,0 +1,15 @@
+<?php
+session_start();
+
+if(isset($_SESSION['LoginUser']))
+{
+	header('Location: lp.php');	
+}
+?>
+
+<html>
+<body>
+
+<h1>WELCOME <?php echo $_SESSION['LoginUser']; ?></h1>
+</body>
+</html>

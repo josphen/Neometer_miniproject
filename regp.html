@@ -1,0 +1,203 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans&display=swap" rel="stylesheet" /><link> 
+<style>
+body
+{
+font-family: "Times New Roman", Times, serif;
+color: white;
+}
+.background {
+background: url('regimg1.jpg') rgba(0, 0, 0, 0.61);
+background-repeat: no-repeat;
+background-size: 100%;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+width: 1470px;
+height: 1100px;
+fill-layer-image-opacity: 0.3;
+opacity: 0.75;
+}
+.container {
+position:absolute;
+width: 667px;
+height: 750px;
+left: 386px;
+top: 40px;
+display: flex;
+flex-direction: column;
+text-align: center;
+margin: 10vh auto;
+background: rgba(241, 235, 237, 0.6);
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 50px;
+font-family: 'Alegreya Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 22px;
+text-align: center;
+color: #000000;
+}
+form {
+padding: 10px;
+display: flex;
+flex-direction: column;
+width: 85%;
+}
+input[type=text], input[type=password],input[type=date]{
+width: 50%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+input[type=text]:focus, input[type=password]:focus,input[type=date]:focus{
+background-color: #ddd;
+outline: none;
+}
+hr {
+border: 0.5px solid black;
+margin-bottom: 30px;
+margin-top: 15px;
+margin-left: 100px;
+margin-right: 100px;
+}
+.registerbtn {
+background: #313030;
+border-radius: 30px;
+font-family: 'Almendra';
+color: white;
+padding: 16px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 40%;
+opacity: 0.9;
+}
+.registerbtn:hover {
+opacity: 1;
+}
+a {
+color: dodgerblue;
+}
+
+.error-message {
+	  color: red;
+	  margin-top: -25px;
+	  margin-bottom: 0px;
+	  font-size: 15px;
+	}
+	
+</style>
+</head>
+<body>
+<form name="myform"  method="POST" onClick = "formValidation()" >
+<div class="background">
+<div class="container" >
+<br></br>
+<h1><b>SIGN UP<b></h1>
+<hr>
+<label for="name"><b>NAME</b></label><br>
+<input type="text" placeholder="Enter name" name="name" id="name" required><p class="error-message"></p><br>
+<label for="dt"><b>DATE OF BIRTH</b></label><br>
+<input type="date" placeholder="Enter Date of Birth" name="dt" id="dt" required><p class="error-message"></p><br>
+<label for="email"><b>EMAIL</b></label><br>
+<input type="text" placeholder="Enter Email" name="email" id="email" required><p class="error-message"></p><br>
+<label for="psw"><b>PASSWORD</b></label><br>
+<input type="password" placeholder="Enter Password(Atleast 1 number)" name="psw" id="psw" required><p class="error-message"></p><br>
+<button type="submit" class="registerbtn" >SIGN UP</button>
+<p>Already have an account? <a href="lp.html">Sign in</a>.</p></center>
+</div>
+</div>
+</form>
+
+
+
+<script>
+function formValidation() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('psw').value;
+    var text = "";
+  
+  if (Name(name)) {
+  }
+  if (Email(email)) {
+  }
+  if (Password(password)) {
+  }
+  return false;
+}
+
+/*Name input validation*/
+function Name(name) {
+  var message = document.getElementsByClassName("error-message");
+  var letters = /^[A-Za-z]+$/;
+  if ( name =="" || name.match(letters)) {
+    text="";
+    message[0].innerHTML = text;
+    return true;
+  }
+  
+  else {
+    text="Name should contain only letters";
+    message[0].innerHTML = text;
+    return false;
+  }
+}
+
+
+/*email address input validation*/
+function Email(email) {
+  var message = document.getElementsByClassName("error-message");
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+  var atpos = email.indexOf("@");
+  var dotpos = email.lastIndexOf(".");
+          
+  if ( email =="" || email.match(mailformat) || atpos > 1 && ( dotpos - atpos > 2 )) {
+    text="";
+    message[2].innerHTML = text;
+    return true;
+  }
+         
+  else {
+    text="Wrong email format";
+    message[2].innerHTML = text;
+    return false;
+  }
+}
+
+
+/*validate password*/
+function Password(password) {
+  var message = document.getElementsByClassName("error-message");
+  var illegalChars = /[\W_]/; // allow only letters and numbers
+  if (illegalChars.test(password)) { 
+    text="Password contains illegal characters";
+    message[3].innerHTML = text;
+    return false;
+  }
+  else if ( (password.search(/[0-9]+/)==-1) ) {
+    text="Password should contain at least one number";
+    message[3].innerHTML = text;
+    return false;
+  }
+  else {
+    text="";
+    message[3].innerHTML = text;
+    return true;
+  }
+}
+
+</script>
+
+</body>
+</html>
